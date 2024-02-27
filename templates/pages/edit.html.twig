@@ -1,0 +1,93 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Modification {% endblock %}
+{% block body %}
+<div class="container">
+
+    <h1 class="mt-4"> Modification d'une ligne</h1>
+
+    {{ form_start(form) }}
+
+
+    <div class="form-group">
+        {{form_label(form.nomDuGroupe)}}
+        {{ form_widget(form.nomDuGroupe) }}
+        <div class="form-errors">
+            {{ form_errors(form.nomDuGroupe)}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{form_label(form.origine)}}
+        {{ form_widget(form.origine) }}
+        <div class="form-errors">
+            {{ form_errors(form.origine)}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{form_label(form.ville)}}
+        {{ form_widget(form.ville) }}
+        <div class="form-errors">
+            {{ form_errors(form.ville)}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{form_label(form.anneeDebut)}}
+        {{ form_widget(form.anneeDebut) }}
+        <div class="form-errors">
+            {{ form_errors(form.anneeDebut)}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{form_label(form.anneeSeparation)}}
+        {{ form_widget(form.anneeSeparation) }}
+        <div class="form-errors">
+            {{ form_errors(form.anneeSeparation)}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{form_label(form.fondateur)}}
+        {{ form_widget(form.fondateur) }}
+        <div class="form-errors">
+            {{ form_errors(form.fondateur)}}
+        </div>
+    </div>
+
+    <div class="form-check mt-4">
+        {{form_label(form.membre)}}
+        {{ form_widget(form.membre) }}
+        <div class="form-errors">
+            {{ form_errors(form.membre)}}
+        </div>
+    </div>
+
+
+    <div class="form-check mt-4">
+        {{form_label(form.courantMusicale)}}
+        {{ form_widget(form.courantMusicale) }}
+        <div class="form-errors">
+            {{ form_errors(form.courantMusicale)}}
+        </div>
+    </div>
+
+
+    <div class="form-check mt-4">
+        {{form_label(form.presentation)}}
+        {{ form_widget(form.presentation) }}
+        <div class="form-errors">
+            {{ form_errors(form.presentation)}}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_row(form.submit) }}
+    </div>
+
+    {{form_end(form) }}
+
+</div>
+{% endblock %}

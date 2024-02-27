@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Mes informations{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+  {% for message in app.flashes('success') %}
+  <div class="alert alert-success mt-4">
+    {{message}}
+  </div>
+  {% endfor %}
+
+  <h1>Mes informations</h1>
+
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nom du groupe</th>
+        <th scope="col">Origine</th>
+        <th scope="col">Ville</th>
+        <th scope="col">Année Début</th>
+        <th scope="col">Année Séparation</th>
+        <th scope="col">Fondateurs</th>
+        <th scope="col">Membres</th>
+        <th scope="col">Courant Musicale</th>
+        <th scope="col">Présentation</th>
+        <th scope="col">Détail</th>
+        <th scope="col">Edition</th>
+        <th scope="col">Suppression</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for info in infos %}
+      <tr class="table-primary">
+        <th scope="row">{{info.id}}</th>
+        <td>{{info.nomDuGroupe}} </td>
+        <td>{{info.origine}} </td>
+        <td>{{info.ville}} </td>
+        <td>{{info.anneeDebut | date('d/m/Y')}} </td>
+        <td>{{info.anneeSeparation | date('d/m/Y')}} </td>
+        <td>{{info.fondateur}} </td>
+        <td>{{info.membre}} </td>
+        <td>{{info.courantMusicale}} </td>
+        <td>{{info.presentation}} </td>
+        <td>
+          <a href="{{ path('info.detail', {id:info.id }) }}" class="btn btn-info">
+            Détail
+          </a>
+        </td>
+        <td>
+          <a href="{{ path('info.edit', {id:info.id }) }}" class="btn btn-info">
+            Modifier
+          </a>
+        </td>
+        <td>
+          <a href="{{ path('info.delete', {id:info.id }) }}" class="btn btn-warning">
+            Supprimer
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

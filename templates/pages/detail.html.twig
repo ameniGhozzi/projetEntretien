@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2 class="text-center mt-5 mb-3">Déatil d'une ligne</h2>
+    <div class="card">
+        <div class="card-header">
+            <a class="btn btn-info" href="{{ path('info.index') }}">
+                Tous les informations
+            </a>
+        </div>
+        <div class="card-body">
+            <b class="text-muted">Nom du groupe:</b>
+            <p>{{ info.nomDuGroupe }}</p>
+            <b class="text-muted">Origine:</b>
+            <p>{{ info.origine }}</p>
+            <b class="text-muted">Ville</b>
+            <p>{{ info.ville }}</p>
+
+            <b class="text-muted">Année Début:</b>
+            <p>{{ info.anneeDebut|date('Y') }}</p>
+
+            <b class="text-muted">Année Séparation:</b>
+            <p>{{ info.anneeSeparation|date('Y') }}</p>
+
+            <b class="text-muted">Fondateur</b>
+            <p>{{ info.fondateur }}</p>
+
+            <b class="text-muted">Membre</b>
+            <p>{{ info.membre }}</p>
+
+            <b class="text-muted">Courant musicale</b>
+            <p>{{ info.courantMusicale }}</p>
+
+
+            <b class="text-muted">Présentation</b>
+            <p>{{ info.presentation }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
