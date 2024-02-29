@@ -39,22 +39,15 @@ class InfoController extends AbstractController
         ]);
     }
      
-    #[Route("/upload-excel", name:"xlsx", methods: ["POST","OPTIONS"])]
+    #[Route("/upload-excel", name:"xlsx", methods: ["POST","OPTIONS", "get"])]
     public function xslx(Request $request): Response
     {
         
         $file = $request->files->get('file');
-        if($file)
-        {
-         $fileFolder = $this->getParameter('kernel.project_dir') . '/public/uploads/'; 
-         $filePathName = md5(uniqid()) . '.' . $file->getClientOriginalExtension(); 
-        }
-        else 
-        {
-            dd('erreur d\'importation du fichier');
-        }
-       
-         $file->move($fileFolder, $filePathName);
+      
+        $fileFolder = $this->getParameter('kernel.project_dir') . '/public/uploads/'; 
+        $filePathName = md5(uniqid()) . '.' . $file->getClientOriginalExtension(); 
+        $file->move($fileFolder, $filePathName);
         $spreadsheet = IOFactory::load($fileFolder . $filePathName); 
         $spreadsheet->getActiveSheet()->removeRow(1); 
         $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true); 
