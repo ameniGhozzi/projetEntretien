@@ -26,17 +26,11 @@ class InfoController extends AbstractController
     }
 
     #[Route('/', name: 'inport')]
-    public function index2(
+    public function importFile(
         InfoRepository $repository,
         Request $request): Response
     {
-      
-           $infos= $repository->findAll();
-       
-
-        return $this->render('pages/importFile.html.twig', [
-            'infos' =>$infos
-        ]);
+        return $this->render('pages/importFile.html.twig');
     }
      
 
