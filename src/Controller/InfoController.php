@@ -25,6 +25,21 @@ class InfoController extends AbstractController
         $this->importInfoService = $importInfoService;
     }
 
+    #[Route('/', name: 'inport')]
+    public function index2(
+        InfoRepository $repository,
+        Request $request): Response
+    {
+      
+           $infos= $repository->findAll();
+       
+
+        return $this->render('pages/importFile.html.twig', [
+            'infos' =>$infos
+        ]);
+    }
+     
+
     #[Route('/info', name: 'info.index')]
     public function index(
         InfoRepository $repository,
@@ -40,11 +55,11 @@ class InfoController extends AbstractController
     }
      
     #[Route("/upload-excel", name:"xlsx", methods: ["POST","OPTIONS", "get"])]
-    public function xslx(Request $request): Response
+    public function xslx(Request $request)
     {
-        
+           
         $file = $request->files->get('file');
-      
+      //dd($file);
         $fileFolder = $this->getParameter('kernel.project_dir') . '/public/uploads/'; 
         $filePathName = md5(uniqid()) . '.' . $file->getClientOriginalExtension(); 
         $file->move($fileFolder, $filePathName);
@@ -66,6 +81,7 @@ class InfoController extends AbstractController
                 $this->importInfoService->create(strval($nomGroupe),strval($origine),strval($ville),$anneeDebut,$anneeSeparation,strval($fondateurs),$membres,strval($courantMusical),strval($presentation));
         }
 
+        return $this->redirectToRoute('info.index');
     }
 
 

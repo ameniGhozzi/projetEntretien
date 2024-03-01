@@ -23,11 +23,12 @@ class Info
     #[ORM\Column(length: 255)]
     private ?string $ville = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $anneeDebut = null;
+    
+    #[ORM\Column(nullable: false)]
+    private ?float $anneeDebut = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $anneeSeparation = null;
+    #[ORM\Column(nullable: true)]
+    private ?float $anneeSeparation = null;
 
     #[ORM\Column(length: 255)]
     private ?string $fondateur = null;
@@ -82,30 +83,29 @@ class Info
         return $this;
     }
 
-    public function getAnneeDebut(): ?\DateTimeInterface
+    public function getanneeDebut(): ?float
     {
         return $this->anneeDebut;
     }
 
-    public function setAnneeDebut(\DateTimeInterface $anneeDebut): static
+    public function setanneeDebut(float $anneeDebut): static
     {
         $this->anneeDebut = $anneeDebut;
 
         return $this;
     }
 
-    public function getAnneeSeparation(): ?\DateTimeInterface
+    public function getanneeSeparation(): ?float
     {
         return $this->anneeSeparation;
     }
 
-    public function setAnneeSeparation(\DateTimeInterface $anneeSeparation): static
+    public function setanneeSeparation(?float $anneeSeparation): static
     {
         $this->anneeSeparation = $anneeSeparation;
 
         return $this;
     }
-
     public function getFondateur(): ?string
     {
         return $this->fondateur;

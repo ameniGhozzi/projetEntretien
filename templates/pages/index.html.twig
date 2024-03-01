@@ -33,16 +33,15 @@
     <tbody>
       {% for info in infos %}
       <tr class="table-primary">
-        <th scope="row">{{info.id}}</th>
         <td>{{info.nomDuGroupe}} </td>
         <td>{{info.origine}} </td>
         <td>{{info.ville}} </td>
-        <td>{{info.anneeDebut | date('d/m/Y')}} </td>
-        <td>{{info.anneeSeparation | date('d/m/Y')}} </td>
+        <td>{{info.anneeDebut }} </td>
+        <td>{{info.anneeSeparation }} </td>
         <td>{{info.fondateur}} </td>
         <td>{{info.membre}} </td>
         <td>{{info.courantMusicale}} </td>
-        <td>{{info.presentation}} </td>
+        <td style="width: 20%;">{{info.presentation}} </td>
         <td>
           <a href="{{ path('info.detail', {id:info.id }) }}" class="btn btn-info">
             Détail

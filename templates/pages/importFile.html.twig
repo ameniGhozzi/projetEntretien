@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} ImportFile{% endblock %}
+
+{% block body %}
+<div class="container" style ="  display: flex;justify-content: center;margin-top:150px; margin-bottom:50px">
+  <div class="card border-primary mb-3" style="max-width: 30rem;">
+    <div class="card-header">
+      <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+      Vous pouvez télécharger votre fichier ici
+      </font></font>
+    </div>
+    <div class="card-body">
+      <!--button type="button" class="btn btn-info"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        <a href="{{ path('xlsx') }}" >
+          Choisir un fichier
+        </a>
+      </font></font></button>
+      <button type="button" class="btn btn-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Télécharger</font></font></button-->
+      
+      <form method="POST" action="{{ path('xlsx') }}"  enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit" class="btn btn-primary">Télécharger!</button>
+     </form>
+    </div>
+  </div>
+  </div>
+ 
+ 
+</div>
+
+{% endblock %}
